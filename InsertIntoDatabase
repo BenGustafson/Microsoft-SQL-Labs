@@ -1,0 +1,11 @@
+insert into dbo.Employee(FirstName, LastName, EmailAddress)
+values('Dan', 'Simmer','dan@dan.com');
+
+insert into dbo.Employee(FirstName,LastName, EmailAddress)
+values('Dan','Simmer','dan@gmail.com');
+
+insert into dbo.Employee(FirstName,LastName,EmailAddress)
+values('Adrian','Ratnayake','adrian@astontech.com');
+
+insert into dbo.Employee(FirstName,LastName,EmailAddress)
+values('James','McRoberts','james@astontech.com');
