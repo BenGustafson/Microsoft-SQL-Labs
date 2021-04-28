@@ -65,10 +65,26 @@ EntityTypeId int varchar(8000) not null,
 CreateDate datetime null
 
 create table dbo.Vehicle(
-Vehicle int identity (1,1) not null
+Vehicle int identity (1,1) not null,
 VehicleYear int null,
 LicensePlate varchar(10) null,
 VIN varchar(20) null,
 Color varchar(10) null,
 IsPurchase bit null,
 PurchaseDate int null,
+VehicleModelId int not null
+);
+
+create table dbo.VehicleMake(
+VehicleMakeId int identity(1,1) not null,
+VehicleMakeName varchar(50) not null,
+CreateDate datetime null
+);
+
+create table dbo.VehiclStatus(
+VehicleStatusId int identity(1,1) not null,
+VehicleId int not null,
+EntityTypeId int not null,
+Notes varchar(8000) null,
+CreateDate datetime null
+);
