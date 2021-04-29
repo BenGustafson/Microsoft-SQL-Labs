@@ -1,4 +1,4 @@
-create table dbo.ClientContact(
+create table dbo.ClientContact1(
 ClientContactId int not null,
 ClientId int not null,
 EntityTypeId int not null
@@ -89,3 +89,13 @@ EntityTypeId int not null,
 Notes varchar(8000) null,
 CreateDate datetime null
 );
+
+
+select * from dbo.ClientContact1
+select * from dbo.Address_
+select * from dbo.Phone
+select * from dbo.Project
+select * from dbo.Training
+select * from dbo.Vehicle
+select * from dbo.VehicleMake
+select * from dbo.VehiclStatus
