@@ -61,8 +61,9 @@ EmployeeId int not null
 create table dbo.Training(
 TrainingDateId int identity(1,1) not null,
 TrainingId int not null,
-EntityTypeId int varchar(8000) not null,
+EntityTypeId varchar(8000) not null,
 CreateDate datetime null
+);
 
 create table dbo.Vehicle(
 Vehicle int identity (1,1) not null,
