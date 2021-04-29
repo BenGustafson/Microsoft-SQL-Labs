@@ -1,0 +1,13 @@
+alter table dbo.ClientContact alter column ClientId int not null, alter column EntityTypeId not null;
+alter table dbo.Address_ alter column AddressId int not null;
+alter table dbo.Phone alter column PhoneId int not null;
+alter table dbo.Project alter column ProjectId int not null;
+alter table dbo.ProjectStatus alter column ProjectStatusId int not null;
+alter table dbo.EmployeeProject alter column EmployeeProjectId int not null;
+alter table dbo.Review alter column ReviewId int not null; 
+alter table dbo.ReviewData alter column ReviewId int not null, alter column EntityTypeId int not null;
+alter table dbo.Training alter column TrainingId int not null;
+alter table dbo.TrainingData alter column TrainingId int not null, alter column EntityTypeId int not null;
+alter table dbo.Vehicle alter column VehicleId int not null;
+alter table dbo.VehicleMake alter column VehicleMakeId int not null;
+alter table dbo.VehicleStatus alter column VehicleStatusId not null;
