@@ -1,0 +1,67 @@
+--create table dbo.Client(
+--ClientId int not null);
+--create table dbo.EntityType(
+--EntityTypeId int not null);
+create table dbo.Person(
+	PersonId int not null);
+
+--create table dbo.Vehicle
+--VehicleId int not null
+--create table dbo.Project(
+--ProjectId int not null);
+
+
+--foreign key
+--Table 1
+alter table dbo.ClientContact_ add ClientId int;
+alter table dbo.ClientContact_ add EntityTypeId int;
+
+--Table 2
+alter table dbo.Address_ add ClientId int;
+alter table dbo.Address_ add PersonId int;
+alter table dbo.Address_ add EntityTypeId int;
+
+--Table 3
+alter table dbo.Phone add EntityTypeId int;
+alter table dbo.Phone add ClientId int;
+alter table dbo.Phone add Person int;
+
+--Table 4 
+alter table dbo.Project add ClientId int; 
+alter table dbo.Project add EntityTypeId int;
+
+--Table 5
+alter table dbo.ProjectStatus add ProjectId int;
+alter table dbo.ProjectStatus add EntityTypeId int;
+
+--Table 6
+alter table dbo.EmployeeProject add ProjectId int;
+alter table dbo.EmployeeProject add EmployeeId int;
+alter table dbo.EmployeeProject add EntityTypeId int;
+alter table dbo.EmployeeProject add VehicleId int;
+
+--Table 7
+alter table dbo.Review add EmployeeId int;
+
+--Table 8
+alter table dbo.ReviewData add ReviewId int;
+alter table dbo.ReviewData add EntityTypeId int;
+
+--Table 9
+alter table dbo.Training add EmployeeId int;
+
+--Table10
+alter table dbo.TrainingData add TrainingId int;
+alter table dbo.TrainingData add EntityTypeId int;
+
+--Table11
+alter table dbo.Vehicle add VehicleMakeId int;
+
+--Table12 
+alter table dbo.VehicleModel add VehicleMakeId --NOTE: THIS DBO.VEHICLEMODEL DOES NOT YET EXIST--
+
+--Table 13
+
+--Table 14
+alter table dbo.VehicleStatus add VehicleId int;
+alter table dbo.VehicleStatus add EntityTypeId int;
