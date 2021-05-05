@@ -1,0 +1,68 @@
+create table dbo.Person (
+Person int not null,
+FirstName int not null,
+LastName int not null
+);
+create table dbo.Entity
+(
+EntityId int not null,
+TableName int not null,
+TableType int not null
+);
+create table dbo.Email(
+EmailId int not null,
+FirstName int not null,
+LastName int not null
+);
+
+select * from dbo.Person;
+select * from dbo.Employee;
+select * from dbo.Entity;
+select * from dbo.Email;
+
+select top 1 * from dbo.Person;
+select top 1 * from dbo.Employee;
+select top 1 * from dbo.Entity;
+select top 1 * from dbo.Email;
+
+--Select the top 2 records with all the columns, giving the columns and table an alias of your choice.
+select top 2 
+	PersonId as ALIAS_1,
+	FirstName as ALIAS_11
+	from dbo.Person as ALIAS_TABLE1;
+	
+
+select top 2 
+	EmployeeId as ALIAS_2,
+	Title as ALIAS_22
+	from dbo.Employee as ALIAS_TABLE2;
+
+select top 2 
+	EntityId as ALIAS_3,
+	TableName as ALIAS_33
+	from dbo.Entity as ALIAS_TABLE3;
+	
+
+select top 2 
+	EmailId as ALIAS_4,
+	FirstName as ALIAS_44
+	from dbo.Email as ALIAS_TABLE4;
+
+
+
+--Select the distinct Id column, giving the column and table an alias of your choice.
+select distinct (PersonId),
+	PersonId as ALIAS_1
+	from dbo.Person as ALIAS_TABLE1;
+
+select distinct (EmployeeId),
+	EmployeeId as ALIAS_2
+	from dbo.Employee as ALIAS_TABLE2;
+
+select distinct (EntityId),
+	EntityId as ALIAS_3
+	from dbo.Entity as ALIAS_TABLE3;
+
+select distinct (EmailId), 
+	EmailId as ALIAS_4
+	from dbo.Email as ALIAS_TABLE4;
