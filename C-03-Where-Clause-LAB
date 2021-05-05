@@ -1,0 +1,51 @@
+TRUNCATE TABLE Person
+TRUNCATE TABLE Client
+--PERSON TABLE ALTERATIONS
+INSERT INTO dbo.Person	(PersonId, FirstName, LastName)
+VALUES (43,'Bob','Johnson')
+INSERT INTO dbo.Person	(PersonId, FirstName, LastName)
+VALUES (3, 'Adrian','McRoberts')
+INSERT INTO dbo.Person	(PersonId, FirstName, LastName)
+VALUES (11, 'Cameron','Xiong')
+
+--CLIENT TABLE ALTERATIONS
+insert into dbo.Client(ClientName) values('Best Buy');
+insert into dbo.Client(ClientName) values('United Health Group');
+insert into dbo.Client(ClientName) values('Minnesota Timberwolves');
+insert into dbo.Client(ClientName) values('Life Time Fitness');
+insert into dbo.Client(ClientName) values('Allianz');
+insert into dbo.Client(ClientName, CreateDate) values('Blue Cross Blue Shield', '10/01/2001');
+insert into dbo.Client(ClientName, CreateDate) values('Dorsey & Whitney LLC', '7/01/2008');
+insert into dbo.Client(ClientName, CreateDate) values('Polaris', '10/01/2009');
+insert into dbo.Client(ClientName, CreateDate) values('Target Corp', '8/01/2012');
+insert into dbo.Client(ClientName, [CreateDate]) values('Walgreens', '1/01/2013');
+
+
+--WHERE COMMANDS FOR DBO.PERSON TABLE
+SELECT * FROM dbo.Person
+WHERE FirstName = 'Adrian';
+SELECT * FROM dbo.Person
+WHERE LastName = 'McRoberts';
+SELECT * FROM dbo.Person
+WHERE PersonId = 3;
+SELECT * FROM dbo.Person
+WHERE PersonId > 1;
+
+--WHERE COMMANDS FOR DBO.CLIENT TABLE
+SELECT * FROM dbo.Client
+WHERE CreateDate BETWEEN '01/01/2010' AND '01/01/2013';
+SELECT * FROM dbo.Client
+WHERE CreateDate > '02/01/2010';
+SELECT * FROM dbo.Client
+WHERE CreateDate < '02/01/2010';
+SELECT * FROM dbo.Client
+WHERE CreateDate BETWEEN '12/31/2000' AND '01/01/2002';
+SELECT * FROM dbo.Client
+WHERE ClientName like 'B%'
+SELECT * FROM dbo.Client
+WHERE ClientName like '%S'
+SELECT * FROM dbo.Client
+WHERE ClientName like '%TIM%'
+SELECT * FROM dbo.Client
+WHERE ClientName = 'Pol%';
+
