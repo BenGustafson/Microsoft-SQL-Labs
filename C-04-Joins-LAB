@@ -1,0 +1,35 @@
+declare 	@EntityId		int,
+		@WorkEntityTypeId	int,
+		@CellEntityTypeId	int;
+
+insert into dbo.Entity(EntityName) values('Phone');
+
+set @EntityId = SCOPE_IDENTITY();
+
+insert into dbo.EntityType(EntityTypeName, EntityId) values('Work', @EntityId);
+insert into dbo.EntityType(EntityTypeName, EntityId) values('Home', @EntityId);
+insert into dbo.EntityType(EntityTypeName, EntityId) values('Cell', @EntityId);
+
+select		@WorkEntityTypeId = b.EntityTypeId
+from		dbo.Entity a
+inner join	dbo.EntityType b on a.EntityId = b.EntityID
+where		a.EntityName = 'Phone'
+and			b.EntityTypeName = 'Work';
+
+select		@CellEntityTypeId = b.EntityTypeId
+from		dbo.Entity a
+inner join	dbo.EntityType b on a.EntityId = b.EntityID
+where		a.EntityName = 'Phone'
+and			b.EntityTypeName = 'Cell';
+
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(1, @WorkEntityTypeId, 612, 1234567);
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(1, @CellEntityTypeId, 763, 1234555);
+
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(2, @WorkEntityTypeId, 952, 3334444);
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(2, @CellEntityTypeId, 763, 3459999);
+
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(3, @WorkEntityTypeId, 952, 3334444);
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(4, @WorkEntityTypeId, 763, 3459999);
+
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(7, @CellEntityTypeId, 763, 3458888);
+insert into dbo.Phone(ClientId, EntityTypeId, AreaCode, PhoneNumber) values(8, @CellEntityTypeId, 763, 2223333);
