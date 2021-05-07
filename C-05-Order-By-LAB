@@ -1,0 +1,24 @@
+Truncate table Person
+
+INSERT INTO dbo.Person (PersonId, FirstName, LastName, EmailAddress, WorkEmailAddress)
+VALUES (7,'Arnold','Ace','Arnold@google.com','AWork@google.com')
+INSERT INTO dbo.Person (PersonId, FirstName, LastName, EmailAddress, WorkEmailAddress)
+VALUES (4,'Ben','Bobbins','Ben@google.com','BWork@google.com')
+INSERT INTO dbo.Person (PersonId, FirstName, LastName, EmailAddress, WorkEmailAddress)
+VALUES (3,'Carol','Cobbins','Carol@google.com','CWork@google.com')
+INSERT INTO dbo.Person (PersonId, FirstName, LastName, EmailAddress, WorkEmailAddress)
+VALUES (6,'Dim','Dooks',null,null)
+
+select * 
+from dbo.Person a
+order by a.LastName 
+
+select * 
+from dbo.Person a
+order by a.LastName
+
+
+select *
+from dbo.Person a
+order by a.EmailAddress DESC
+
