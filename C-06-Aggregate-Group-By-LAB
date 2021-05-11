@@ -1,0 +1,46 @@
+--1	Select the client record that has the earliest create date.
+select min(DateCreate)
+from dbo.Client
+
+--2	Select the client record that has the most recent create date.
+select max(DateCreate)
+from dbo.Client
+
+--3	Select the total number of client records.
+select count(ClientId)
+from dbo.Client
+
+--4	Select the total number of client records that have a work phone number.
+select sum(ClientId)
+from dbo.Client
+where WorkPhone >1
+
+
+--5	Select the total number of client records that have a cell phone number.
+select count(PhoneNumber)
+from dbo.Phone
+--6	Select the phone type and determine the count of records for each type.
+--how to select type of phone?
+--7	Select the area code and the count of records for each area code.
+select count(AreaCode)
+from dbo.Phone
+
+--8	Select the client and determine how many phone numbers they have, if any at all.
+select count(PhoneNumbers)
+from dbo.Phone
+
+--9	Select the total number of phone numbers.
+Select sum(PhoneNumber)
+from dbo.Phone
+
+--10	Select the total number of cell phone numbers.
+select sum(PhoneNumberPost)
+from dbo.Phone
+
+--11	Select the total number of work phone numbers.
+select sum(WorkPhone)
+from dbo.Phone
+--12	Select the area code and the number of records per area code.
+select count(PhoneId)
+from dbo.Phone
+where AreaCode = 1
