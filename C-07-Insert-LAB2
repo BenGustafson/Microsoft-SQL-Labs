@@ -1,0 +1,62 @@
+--Using the Vehicle, VehicleModel and VehicleMake tables
+--write some INSERT statements 
+--insert 5 different vehicle makes (TESLA, CHEVROLET, ASTON MARTIN, BMW, TOYOTA)
+--each with 2 different vehicle models.(Base, Luxury)
+--You are to then insert 10 records into the dbo.Vehicle table,
+--2 for each different year.  
+--Each vehicle record should be a different vehicle model.
+DELETE FROM VehicleMake;
+DELETE FROM VehicleModel;
+Truncate table Vehicle
+
+
+--1.dbo.Vehicle --
+--PK_VehicleID (UNUSED)--
+--FK_VehicleModelID--
+
+INSERT INTO Vehicle (VehicleYear)
+VALUES (2021)
+INSERT INTO Vehicle (VehicleYear)
+VALUES (2021)
+INSERT INTO Vehicle (VehicleYear)
+VALUES (2021)
+INSERT INTO Vehicle (VehicleYear)
+VALUES (2021)
+INSERT INTO Vehicle (VehicleYear)
+VALUES (2021)
+
+--2.dbo.VehicleModel--
+--PK_VehicleModelID--
+--FK_VehicleMakeID (Secondary)--
+INSERT INTO VehicleModel (VehicleModelID, VehicleModelName)
+VALUES (100,'Model X')
+INSERT INTO VehicleModel (VehicleModelID, VehicleModelName)
+VALUES (200,'Model Y')
+INSERT INTO VehicleModel (VehicleModelID, VehicleModelName)
+VALUES (300,'Model S')
+INSERT INTO VehicleModel (VehicleModelID, VehicleModelName)
+VALUES (400,'Model 3')
+INSERT INTO VehicleModel (VehicleModelID, VehicleModelName)
+VALUES (500,'Prius')
+
+
+
+--3.dbo.VehicleMake--
+--PK_VehicleMakeID--
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('ASTON MARTIN')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('BMW')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('CHEVROLET')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('TESLA')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('TOYOTA')
+
+--4.Run Select commands--
+select * from dbo.VehicleMake
+select * from dbo.VehicleModel
+select * from dbo.Vehicle
+
+
