@@ -1,0 +1,64 @@
+Truncate table Vehicle
+Truncate table VehicleMake
+DELETE Vehicle
+DELETE VehicleMake
+DELETE VehicleModel
+
+
+--1. dbo.VehicleMake
+--PK_VehicleMakeID--
+--insert 5 different vehicle makes (TESLA, CHEVROLET, ASTON MARTIN, BMW, TOYOTA)
+--each with 2 different vehicle models.
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('AUDI')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('BMW')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('CHEVROLET')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('TESLA')
+INSERT INTO VehicleMake (VehicleMakeName)
+VALUES ('TOYOTA')
+
+SET IDENTITY_INSERT dbo.VehicleModel ON
+--2.dbo.VehicleModel--
+--PK_VehicleModelID--
+--FK_VehicleMakeID (Secondary)--
+INSERT INTO VehicleModel ( VehicleModelID, VehicleModelName, VehicleMakeId)
+VALUES 
+(1,'S4', 74),
+(2,'R8', 75),
+(3,'M3', 76),
+(4,'M5', 77),
+(5,'Silverado', 78),
+(6,'Camaro', 79),
+(7,'Model X', 80),
+(8,'Model Y',81),
+(9,'Prius',82),
+(10,'Tacoma',83);
+
+--3.dbo.Vehicle --
+--PK_VehicleID (UNUSED)--
+--FK_VehicleModelID--
+--You are to then insert 10 records into the dbo.Vehicle table,
+--2 for each different year.  
+--Each vehicle record should be a different vehicle model.
+
+INSERT INTO Vehicle (VehicleYear, LicensePlate, VIN, Color, IsPurchase, PurchasePrice, PurchaseDate, VehicleModelID)
+VALUES 
+(2021, 'asd-aaa', 'V00001', 'blue', 0, 10000, '2020-01-01', 1),
+(2020, 'asd-bbb', 'V00002', 'green', 0, 40000, '2020-01-01', 2),
+(2022, 'asd-ccc', 'V00003', 'teal', 0, 40000, '2020-01-01', 3),
+(2020, 'asd-ddd', 'V00004', 'forest', 0, 50000,'2020-01-01', 4),
+(2020, 'asd-eee', 'V00005', 'tan', 0, 40000, '2020-01-01', 5),
+(2020, 'asd-fff', 'V00006', 'green', 0, 50000, '2020-01-01', 6),
+(2020, 'asd-ggg', 'V00007', 'green', 0, 40000,'2020-01-01', 7),
+(2020, 'asd-hhh', 'V00008', 'red', 0, 80000, '2020-01-01', 8),
+(2020, 'asd-iii', 'V00009', 'green', 0, 40000,'2020-01-01', 9),
+(2020, 'asd-jjj', 'V000010', 'purple', 0, 70000, '2020-01-01', 10)
+
+--4.Run Select commands--
+select * from dbo.VehicleMake
+select * from dbo.VehicleModel
+select * from dbo.Vehicle
+
