@@ -1,0 +1,46 @@
+--UPDATE LAB
+update dbo.Employee set HireDate=null;
+
+select * from Employee;
+
+UPDATE dbo.Employee
+SET HireDate = '2000-01-01'
+WHERE EmployeeId = 1;
+UPDATE dbo.Employee
+SET HireDate = '2000-02-01'
+WHERE EmployeeId = 2;
+UPDATE dbo.Employee
+SET HireDate = '2000-03-01'
+WHERE EmployeeId = 3;
+UPDATE dbo.Employee
+SET HireDate = '2000-04-01'
+WHERE EmployeeId = 4;
+--Increment
+--SET DATEADD (m, 01, '2000/01/01') AS DateAdd
+
+
+UPDATE dbo.Phone
+SET AreaCode = 952
+WHERE AreaCode =612
+--SWAP
+UPDATE dbo.Phone
+SET AreaCode = 612
+WHERE AreaCode =952
+
+UPDATE dbo.Person
+SET Title = 'Mr.'
+Where Title = null
+
+UPDATE dbo.Person 
+SET IsDeleted = 1
+WHERE PersonId <= 8
+
+
+
+
+
+select * from Employee
+select * from Phone
+select * from Person
+
+--
