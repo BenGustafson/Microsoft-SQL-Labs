@@ -1,0 +1,64 @@
+--1.
+--Write a script to declare 3 variables, each of different data type. 
+--The data type should be int, varchar and datetime. 
+--You should set each variable to a value of your choosing 
+--and display the variables in the result window.
+
+declare @Var1 int = null,
+		@Var2 varchar(50) = null,
+		@Var3 datetime = null;
+
+set		@Var1 = 1;
+set		@Var2 = 'Training';
+set		@Var3 = '1/1/20';
+
+print @Var1;
+print @Var2;
+print @Var3;
+
+--2.
+--Write a script that demonstrates your ability to write an IF/ELSE statement.
+--Declare at least 2 different variables and your script should have at least 1 IF/ELSE statement.
+declare @Var4 int = null,
+		@Var5 int = null;
+
+set @Var4 = 0
+set @Var5 = 10
+
+if (@Var4 > 0)
+	begin
+		print 'Variable 4 is greater than zero'
+	end
+else
+	begin
+		print 'Variable 4 is less than zero'
+end
+		
+--3.
+--This next script should have at least 1 IF/ELSE statement and at least 3 GOTO label sections.
+--You should be able to demonstrate that the GOTO sections will be processed by changing a parameter or variable in your script.
+DECLARE @Test1 int
+		
+SET		@Test1 = 1;
+	IF	@Test1 < 5
+		BEGIN
+			IF		@Test1 = 2 GOTO Statement_1;
+			IF		@Test1 = 3 GOTO Statement_2;
+			IF		@Test1 = 4 GOTO Statement_3;
+			SET		@Test1 = @Test1 + 1
+
+		END;
+	ELSE
+print 'This test is terminated!!!'
+
+Statement_1:
+print 'Statement 1' 
+SET @Test1 = 5+100;
+
+Statement_2:
+print 'Statement 2';
+
+Statement_3:
+print 'Statement 3';
+
+print @Test1
