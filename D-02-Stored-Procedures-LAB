@@ -1,0 +1,56 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- ==============================================
+-- Author:		Benjamin Gustafson
+-- Create date: 5/19/2021
+-- Description:	Stored Procedures Lab GET/EXECUTE
+-- ==============================================
+
+-- ==============================================STORED PROCEDURE 1==(GET dbo.Client)=========================================================
+CREATE PROCEDURE dbo.usp_GetClient
+(
+	@ClientId		int = null,
+	@ClientName		int = null,
+	@DateCreate		datetime = null,
+	@QueryId		int = 10
+)
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	if @QueryId = 10 begin goto GET_ITEM		end;
+	if @QueryId = 20 begin goto GET_COLLECTION	end;
+
+	goto EXIT_SECTION
+
+GET_ITEM:
+	begin
+		select	a.ClientId,
+				a.ClientName,
+				a.DateCreate
+
+		from	dbo.Client a
+		where	a.ClientId = @ClientId
+
+	goto EXIT_SECTION;
+end
+GET_COLLECTION:
+begin
+		select	a.ClientId,
+						a.ClientName,
+						a.DateCreate
+
+		from	dbo.Client a
+		where	a.ClientId = @ClientId
+
+		goto EXIT_SECTION;
+end
+
+END
+GO
+--======================================================
