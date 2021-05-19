@@ -50,7 +50,11 @@ begin
 
 		goto EXIT_SECTION;
 end
-
+--BEGIN:  EXIT_SECTION
+EXIT_SECTION:
+--END: EXIT_SECTION
+END
+GO
 END
 GO
 --======================================================
