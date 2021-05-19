@@ -29,10 +29,6 @@ BEGIN
 	if (@QueryId = 30) begin goto DELETE_ITEM end;
 	
 	goto EXIT_SECTION;
-END
-GO
-
-
 
 --BEGIN		INSERT SECTION----------------------------------------------------------------------
 INSERT_ITEM:
@@ -63,6 +59,7 @@ UPDATE_ITEM:
 
 		set		@ReturnValue = @QueryId;
 --END		UPDATE SECTION
+
 --BEGIN		DELETE SECTION------------------------------------------------------------------------
 DELETE_ITEM:
 	begin
@@ -71,7 +68,14 @@ DELETE_ITEM:
 		where ClientId = @ClientId
 
 		set @ReturnValue = @QueryId;
-
+	
 		goto EXIT_SECTION;
-	end
+end
 --END		DELETE SECTION
+
+--BEGIN:  EXIT_SECTION
+EXIT_SECTION:
+end
+--END: EXIT_SECTION
+END
+GO
