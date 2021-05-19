@@ -1,0 +1,77 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- ==============================================
+-- Author:		Benjamin Gustafson
+-- Create date: 5/19/2021
+-- Description:	Stored Procedures Lab GET/EXECUTE
+-- ==============================================
+
+-- ==============================================STORED PROCEDURE 1==(GET dbo.Client)=========================================================
+CREATE PROCEDURE dbo.usp_ExecuteClient
+(
+	@ClientId		int = null,
+	@ClientName		int = null,
+	@DateCreate		datetime = null,
+	@QueryId		int = 10,
+	@ReturnValue	int = null output
+)
+AS
+
+BEGIN
+	--SET NOCOUNT ON added to prevent extra result sets from
+	--interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	if (@QueryId = 10) begin goto INSERT_ITEM end;
+	if (@QueryId = 20) begin goto UPDATE_ITEM end;
+	if (@QueryId = 30) begin goto DELETE_ITEM end;
+	
+	goto EXIT_SECTION;
+END
+GO
+
+
+
+--BEGIN		INSERT SECTION----------------------------------------------------------------------
+INSERT_ITEM:
+	begin
+		insert into dbo.Client  (ClientId,
+								ClientName,
+								DateCreate)
+								
+		values					(@ClientId,
+								@ClientName,
+								@DateCreate)
+								
+		
+set @ReturnValue = SCOPE_IDENTITY();
+
+		goto EXIT_SECTION;
+	end
+--END		INSERT SECTION
+
+--BEGIN		UPDATE SECTION-----------------------------------------------------------------------
+UPDATE_ITEM:
+	begin
+		update	dbo.Client
+		set		ClientId	=	isnull(@ClientId, ClientId),
+				ClientName	=	isnull(@ClientName, ClientName)
+
+		where	@QueryId = @QueryId;
+
+		set		@ReturnValue = @QueryId;
+--END		UPDATE SECTION
+--BEGIN		DELETE SECTION------------------------------------------------------------------------
+DELETE_ITEM:
+	begin
+		delete
+		from dbo.Client
+		where ClientId = @ClientId
+
+		set @ReturnValue = @QueryId;
+
+		goto EXIT_SECTION;
+	end
+--END		DELETE SECTION
